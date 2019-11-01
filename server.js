@@ -2,10 +2,13 @@
 const express = require('express')
 var hbs = require('express-handlebars');
 const app = express();
-const Handlebars = require('Handlebars');
+//const Handlebars = require('Handlebars');
+var Sqrl = require('squirrelly')
+let path = require('path');
 //const jsdom = require('jsdom');
-app.engine('handlebars', hbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+
+// app.engine('handlebars', hbs({defaultLayout: 'main'}));
+// app.set('view engine', 'handlebars');
 
 var xmlHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xmlHttp = new xmlHttpRequest();
@@ -23,7 +26,7 @@ app.get('/', (req, res) => {
 
 app.get('/list', (req, res) => {
   xmlHttp.open( "GET", "http://data.sfgov.org/resource/cf6e-9e4j.json", false ); // false for synchronous request
-  xmlHttp.setRequestHeader('X-App-Token', 'pvb0OpYXHVJ3b4sJSiMzqln82');
+  xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK');
   xmlHttp.send( null );
   console.log("ready");
   var Data = JSON.parse(xmlHttp.responseText);
@@ -31,7 +34,9 @@ app.get('/list', (req, res) => {
   // make Data a list of objects with properties name, artist, location
   // update html file with proper property names
   //res.sendFile('lists.html', { root: '/Users/tpl619_6/Desktop/Project1/' });
-  res.render('lists', {users: Data });
+  var HTMLFile = Sqrl.renderFile(path.join(__dirname, 'lists.html'), Data)
+  res.write(HTMLFile);
+  //res.render('lists', {users: Data });
 });
 
 //var template = $('#handlebars-demo').html();
