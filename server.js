@@ -2,13 +2,8 @@
 const express = require('express')
 var hbs = require('express-handlebars');
 const app = express();
-//const Handlebars = require('Handlebars');
-var Sqrl = require('squirrelly')
+var Sqrl = require('squirrelly');
 let path = require('path');
-//const jsdom = require('jsdom');
-
-// app.engine('handlebars', hbs({defaultLayout: 'main'}));
-// app.set('view engine', 'handlebars');
 
 var xmlHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xmlHttp = new xmlHttpRequest();
@@ -18,12 +13,12 @@ var xmlHttp = new xmlHttpRequest();
 
 // setting port
 app.set('port', process.env.PORT || 5000)
-
+//get request to render landing page
 app.get('/', (req, res) => {
     console.log('HOME ERROR');
   res.sendFile('screen2.html', { root: '/Users/tpl619_6/Desktop/Project1/' })
   })
-
+//get request to make API call and render that JSON data. 
 app.get('/list', (req, res) => {
   xmlHttp.open( "GET", "http://data.sfgov.org/resource/cf6e-9e4j.json", false ); // false for synchronous request
   xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK');
@@ -36,14 +31,7 @@ app.get('/list', (req, res) => {
   //res.sendFile('lists.html', { root: '/Users/tpl619_6/Desktop/Project1/' });
   var HTMLFile = Sqrl.renderFile(path.join(__dirname, 'lists.html'), Data)
   res.write(HTMLFile);
-  //res.render('lists', {users: Data });
 });
 
-//var template = $('#handlebars-demo').html();
-// var context = {
-//   "language" : "<h3>handlebars</h3>",
-//   "adjective": "<h3>awesome</h3>"
-// }
-  
 //listening at port
 app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`))
