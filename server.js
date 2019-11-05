@@ -14,7 +14,7 @@ var xmlHttp = new xmlHttpRequest();
 //var template = Handlebars.compile(source);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 //app.use(multer());
 
 // setting port
@@ -25,16 +25,24 @@ app.get('/', (req, res) => {
   })
 
 //data processing route;
-app.post('/list', (req, res) => {
+app.get('/list', (req, res) => {
   console.log("ready");
-  console.log(req.body)
+  console.log(req.query.name);
   xmlHttp.open( "GET", "http://data.sfgov.org/resource/cf6e-9e4j.json", false ); // false for synchronous request
   xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK');
   xmlHttp.send( null );
   var Data = JSON.parse(xmlHttp.responseText);
+  var HTMLFile = Sqrl.renderFile(path.join(__dirname, 'lists.html'), Data)
+  res.write(HTMLFile);
 })
+
+let numZip = req.query.name
+function findLoc(numZip){
+  for (let i = 0; i )
+}
+
 //get request to make API call and render that JSON data. 
-app.get('/list', (req, res) => {
+//app.get('/list', (req, res) => {
   // console.log(req.body)
   // xmlHttp.open( "GET", "http://data.sfgov.org/resource/cf6e-9e4j.json", false ); // false for synchronous request
   // xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK');
@@ -47,7 +55,17 @@ app.get('/list', (req, res) => {
   //res.sendFile('lists.html', { root: '/Users/tpl619_6/Desktop/Project1/' });
   // var HTMLFile = Sqrl.renderFile(path.join(__dirname, 'lists.html'), Data)
   // res.write(HTMLFile);
-});
+//});
+
+//method. input should be zipcode. output should be top five results from Data. take the zipcode, find the long/lat of the zipcode.  
+//takes in zipcode and converts that to long/lat. 
+
+//takes the long/lat from prev method and converts that to a zipcode i've hardcoded. 
+
+//take that zipcode, search thru list of zipcodes, then return the artwork tht i've assigned to that zipcode.  and return top results in mile radius. 
+
+
 
 //listening at port
-app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`))
+app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`));
+
