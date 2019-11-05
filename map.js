@@ -14,14 +14,20 @@ $.ajax({
       this.latitude = latitude;
       this.longitude = longitude;
     }
-  var a = new Point(37.780350, -122.415748);
-  var b = new Point(37.77245,-122.4119627);
-  var c = new Point();
-  var d = new Point();
-  var e = new Point();
-  var i = new Point(37.797557,-122.4012137);
-  var 
-  
+    var a = new Point(37.780350, -122.415748);
+    var b = new Point(37.77245,-122.4119627);
+    var c = new Point(37.791592, -122.401624);
+    var d = new Point(37.789857, -122.393678);
+    var e = new Point(37.781201, -122.395061);
+    var f = new Point(37.791672, -122.408245);
+    var g = new Point(37.793948, -122.421296);
+    var h = new Point(37.752833, -122.414889);
+    var i = new Point(37.797557,-122.4012137);
+    var j = new Point(37.720799, -122.440835);
+    var k = new Point();
+    var l = new Point();
+    var m = new Point();
+
   var myMap = new Map();
   myMap.set(94102, a);
   myMap.set(94103, b);
