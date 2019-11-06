@@ -73,31 +73,45 @@ function findLoc(numZ){
 //listening at port
 app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`));
 
-//this is user zipcode that has been converted. 
-// let lat1;
-// let lon1;
-//this is the first artwork that is going to be input into this method. 
-// let lat2;
-// let lon2;
-//radius of the earth in miles. 
-// var R = 3958.8; // miles
-// var alpha = lat1.toRadians();
-// var beta = lat2.toRadians();
-// var omega = (lat2-lat1).toRadians();
-// var tau = (lon2-lon1).toRadians();
-//use hash map to connect the array of distances to array of artwork?
-// var a = Math.sin(omega/2) * Math.sin(omega/2) +
-//         Math.cos(alpha) * Math.cos(beta) *
-//         Math.sin(tau/2) * Math.sin(tau/2);
-// var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-//every data point in the object.point should be iterated thru the formula. this distance should then be stored in an array. 
-//Everything that is returned from here needs to be stored in an array. 
-//this should be returned in miles. 
-// var d = R * c;
-// need an array of the 65 artworks. 
-//for loop that will iterate thru the haversine array.
-  //declare an empty variable to store results. 
-  //if a distance is greater than 2, take the result and store in a variable. 
-  //finish loop 
-  //return the indices of the artworks [different array]
+this is user zipcode that has been converted. 
+let lat1;
+let lon1;
+this is the first artwork that is going to be input into this method. 
+let lat2;
+let lon2;
+radius of the earth in miles. 
+//variable that is an array that stores the artwork. 
+//find the coordinates of each object in the array. object.keys?
+//this has to be stored in a different array.
+//now loop each coordinate in the haversineDistance and find the distance b/w user input and the new zipcode. 
+//store the results in an array.  
+//if the absolute value of the results is lesser than 2, return the index. 
+
+function calcDistanceBetween(lat1, lon1, lat2, lon2) {
+  //Radius of the earth in:  1.609344 miles,  6371 km  | var R = (6371 / 1.609344);
+  var R = 3958; // Radius of the earth in km
+  var dLat = (lat2 - lat1) * Math.PI / 180;  // deg2rad below
+  var dLon = (lon2 - lon1) * Math.PI / 180;
+  var a = 
+     0.5 - Math.cos(dLat)/2 + 
+     Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+     (1 - Math.cos(dLon))/2;
+
+  return R * 2 * Math.asin(Math.sqrt(a));
+}
+
+for (var i = 0; i < arrayOfFunctions.length; ++i) {
+  arrayOfFunctions[i](); // run your function
+}
+
+every data point in the object.point should be iterated thru the formula. this distance should then be stored in an array. 
+Everything that is returned from here needs to be stored in an array. 
+this should be returned in miles. 
+var d = R * c;
+need an array of the 65 artworks. 
+for loop that will iterate thru the haversine array.
+  declare an empty variable to store results. 
+  if a distance is greater than 2, take the result and store in a variable. 
+  finish loop 
+  return the indices of the artworks [different array]
 
