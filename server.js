@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   res.sendFile('screen2.html', { root: '/Users/tpl619_6/Desktop/Project1/' })
   })
 
-//data processing route;
+//route to receive prev zipcode and make API call. 
 app.get('/list', (req, res) => {
   console.log("ready");
   console.log(req.query.name);
@@ -32,12 +32,16 @@ app.get('/list', (req, res) => {
   xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK');
   xmlHttp.send( null );
   var Data = JSON.parse(xmlHttp.responseText);
+  //here is where the method will be implemented. it will input Data and the query.name. Manipulate that information and return a filtered Data.
+  //function filterDataSet(zipcode, Data){
+  // return new Data
+  //}
   var HTMLFile = Sqrl.renderFile(path.join(__dirname, 'lists.html'), Data)
   res.write(HTMLFile);
 })
 
 let numZip = req.query.name
-function findLoc(numZip){
+function findLoc(numZ){
   for (let i = 0; i )
 }
 
@@ -68,4 +72,32 @@ function findLoc(numZip){
 
 //listening at port
 app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`));
+
+//this is user zipcode that has been converted. 
+// let lat1;
+// let lon1;
+//this is the first artwork that is going to be input into this method. 
+// let lat2;
+// let lon2;
+//radius of the earth in miles. 
+// var R = 3958.8; // miles
+// var alpha = lat1.toRadians();
+// var beta = lat2.toRadians();
+// var omega = (lat2-lat1).toRadians();
+// var tau = (lon2-lon1).toRadians();
+
+// var a = Math.sin(omega/2) * Math.sin(omega/2) +
+//         Math.cos(alpha) * Math.cos(beta) *
+//         Math.sin(tau/2) * Math.sin(tau/2);
+// var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+//array that should 
+//Everything that is returned from here needs to be stored in an array. 
+//this should be returned in miles. 
+// var d = R * c;
+// need an array of the 65 artworks. 
+//for loop that will iterate thru the haversine array.
+  //declare an empty variable to store results. 
+  //if a distance is greater than 2, take the result and store in a variable. 
+  //finish loop 
+  //return the indices of the artworks [different array]
 
