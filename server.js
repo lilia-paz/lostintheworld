@@ -85,12 +85,12 @@ app.listen(app.get('port'), () => console.log(`My server is running ${app.get('p
 // var beta = lat2.toRadians();
 // var omega = (lat2-lat1).toRadians();
 // var tau = (lon2-lon1).toRadians();
-
+//use hash map to connect the array of distances to array of artwork?
 // var a = Math.sin(omega/2) * Math.sin(omega/2) +
 //         Math.cos(alpha) * Math.cos(beta) *
 //         Math.sin(tau/2) * Math.sin(tau/2);
 // var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-//array that should 
+//every data point in the object.point should be iterated thru the formula. this distance should then be stored in an array. 
 //Everything that is returned from here needs to be stored in an array. 
 //this should be returned in miles. 
 // var d = R * c;
