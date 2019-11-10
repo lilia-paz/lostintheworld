@@ -123,7 +123,9 @@ router.get('/list', (req, res) => {
   console.log('TESTING ZIPCODE:')
   console.log(typeof req.query.zipcode);
   console.log(req.query.zipcode);
-  var userInput = req.query.zipcode;
+  var userInput = parseInt(req.query.zipcode);
+  console.log('WHAT IS TYPE OF USERINPUT')
+  console.log(typeof userInput);
   console.log('TESTING FINDLOC')
   console.log(findLoc(userInput));
 
