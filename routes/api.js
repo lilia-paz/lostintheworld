@@ -90,7 +90,7 @@ function findLoc(num1){
 
 function calcDistanceBetween (lat1, lon1, lat2, lon2) { // or params can be point 1, point 2
   // Radius of the earth in:  1.609344 miles,  6371 km  | var R = (6371 / 1.609344);
-  var R = 3958 // Radius of the earth in km
+  var R = 3958.08 // Radius of the earth in km
   var dLat = (lat2 - lat1) * Math.PI / 180 // deg2rad below
   var dLon = (lon2 - lon1) * Math.PI / 180
   var a =
@@ -119,7 +119,6 @@ function findArtwork (userInput, array) {
 
 router.get('/list', (req, res) => {
   console.log('READY')
-  console.log(req.query);
   console.log('TESTING ZIPCODE:')
   console.log(typeof req.query.zipcode);
   console.log(req.query.zipcode);
