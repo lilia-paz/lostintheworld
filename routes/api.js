@@ -83,14 +83,12 @@ myMap.set(94133, y)
 myMap.set(94134, z)
 myMap.set(94158, zz)
 
-function findLoc(num1){
-  console.log(myMap.get(num1));
+function findLoc (num1) {
   return myMap.get(num1)
 }
 
-function calcDistanceBetween (lat1, lon1, lat2, lon2) { // or params can be point 1, point 2
-  // Radius of the earth in:  1.609344 miles,  6371 km  | var R = (6371 / 1.609344);
-  var R = 3958.08 // Radius of the earth in km
+function calcDistanceBetween (lat1, lon1, lat2, lon2) {
+  var R = 3958.08
   var dLat = (lat2 - lat1) * Math.PI / 180 // deg2rad below
   var dLon = (lon2 - lon1) * Math.PI / 180
   var a =
@@ -102,37 +100,27 @@ function calcDistanceBetween (lat1, lon1, lat2, lon2) { // or params can be poin
 }
 
 function findArtwork (userInput, array) {
-  let  resultArr = []
-  let userCoordinates = findLoc(userInput); 
+  const resultArr = []
+  const userCoordinates = findLoc(userInput) 
   for (let i = 0; i < array.length; i++) {
     const resultDistance = calcDistanceBetween(array[i].the_geom.coordinates[1], array[i].the_geom.coordinates[0], userCoordinates.latitude, userCoordinates.longitude)
-    console.log(resultDistance)
     if (resultDistance < 0.5) {
       resultArr.push(array[i])
     }
   }
-
-  console.log('THIS IS HOW LONGN THE ARRAY IS');
+  console.log('THIS IS HOW LONG THE ARRAY IS')
   console.log(resultArr.length)
   return resultArr
 }
 
 router.get('/list', (req, res) => {
-  console.log('READY')
-  console.log('TESTING ZIPCODE:')
-  console.log(typeof req.query.zipcode);
-  console.log(req.query.zipcode);
-  var userInput = parseInt(req.query.zipcode);
-  console.log('WHAT IS TYPE OF USERINPUT')
-  console.log(typeof userInput);
-  console.log('TESTING FINDLOC')
-  console.log(findLoc(userInput));
+  var userInput = parseInt(req.query.zipcode)
 
   xmlHttp.open('GET', 'http://data.sfgov.org/resource/cf6e-9e4j.json', false) // false for synchronous request
   xmlHttp.setRequestHeader('X-App-Token', 'yMMJQvFA5uahUfUINwLu43YfK')
   xmlHttp.send(null)
   var Data = JSON.parse(xmlHttp.responseText)
-  var filteredData = findArtwork(userInput, Data);
+  var filteredData = findArtwork(userInput, Data)
 
   // here is where the method will be implemented. it will input Data and the query.name. Manipulate that information and return a filtered Data.
 
