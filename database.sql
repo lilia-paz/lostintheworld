@@ -8,14 +8,14 @@ CREATE TABLE "user" (
     "first_name" VARCHAR (80) NOT NULL,
     "last_name" VARCHAR (80) NOT NULL
 );
-
-
---create favorites table --> holds each starred location with a reference to the user
+--create places table --
 CREATE TABLE "places" (
 	"id" SERIAL PRIMARY KEY,
 	"artwork_name" VARCHAR (80) NOT NULL,
-	"artist_name" VARCHAR (80) NOT NULL
+	"artist_name" VARCHAR (80) NOT NULL,
+    "address" VARCHAR (1000) NOT NULL
 );
+--create favorites table --> holds each starred location with a reference to the user
 
 CREATE TABLE "favorite" (
     "places_id" INT NOT NULL REFERENCES 
