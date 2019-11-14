@@ -128,4 +128,8 @@ router.get('/list', (req, res) => {
   res.write(HTMLFile)
 })
 
+router.get('/favoritePlaces', (req, res) => {
+  res.sendFile('favoritePlaces.html', { root: '/Users/tpl619_6/Desktop/Project1/' })
+})
+
 module.exports = router
