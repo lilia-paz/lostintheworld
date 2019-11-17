@@ -18,7 +18,7 @@ CREATE TABLE "places" (
 --create favorites table --> holds each starred location with a reference to the user
 
 CREATE TABLE "favorite" (
-    "places_id" INT NOT NULL REFERENCES 
+    "places_id" INT NOT NULL REFERENCES --this will be name of artwork
 	"user_id" INT NOT NULL REFERENCES "user" ON DELETE CASCADE
 );
 -- journal table?
