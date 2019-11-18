@@ -43,6 +43,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('port', process.env.PORT || 5000)
 // get request to render landing page
 
+app.get('*', (req, res) => res.json({ msg: 'Welcome to ' + req.hostname }))
+
 app.use('/', require('./routes/api'))
 
 // listening at port
