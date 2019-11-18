@@ -7,11 +7,6 @@ const path = require('path')
 var bodyParser = require('body-parser')
 var xmlHttpRequest = require('xmlhttprequest').XMLHttpRequest
 var xmlHttp = new xmlHttpRequest()
-// const jsdom = require('jsdom')
-// const { JSDOM } = jsdom
-
-// const { window } = new JSDOM(`...`);
-// const { document } = (new JSDOM(`...`)).window;
 
 // const Pool = require('pg').Pool
 // const pool = new Pool({
