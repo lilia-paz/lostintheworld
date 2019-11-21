@@ -1,6 +1,8 @@
 # lostintheworld# Draft
 
-Lost in the World is an application that allows users to search publicly available art in San Francisco. 
+Lost in the World is an application that allows users to search and interact with publicly available art in San Francisco. 
+
+<img width="1268" alt="Screen Shot 2019-11-21 at 9 46 19 AM" src="https://user-images.githubusercontent.com/52177407/69362917-4b5e4480-0c44-11ea-9129-31364b3217ef.png">
 
 
 ## Getting Started
@@ -32,12 +34,6 @@ All dependencies can be installed via npm:
     "nodemon": "^1.19.4",
     "npm-run-all": "^4.1.5"
 
-
-
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
