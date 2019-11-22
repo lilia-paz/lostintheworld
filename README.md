@@ -1,4 +1,4 @@
-# lostintheworld# Draft
+# lostintheworld#
 
 Lost in the World is an application that allows users to search and interact with publicly available art in San Francisco. 
 
@@ -15,16 +15,16 @@ Lost in the World is an application that allows users to search and interact wit
 
 3. Run the application
 
-Server: nodemon server.js
+   Server: node server.js
 
-Client: npm start
+   Client: npm start
 
 4. Application will be available on localhost:3000.
 
 ### Prerequisites
-All dependencies can be installed via npm:
+    All dependencies can be installed via npm:
 
-  "body-parser": "^1.19.0",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
@@ -32,7 +32,13 @@ All dependencies can be installed via npm:
     "jwks-rsa": "^1.6.0",
     "mongoose": "^5.7.12",
     "nodemon": "^1.19.4",
-    "npm-run-all": "^4.1.5"
+    "@auth0/auth0-spa-js": "^1.5.0",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "mongoose": "^5.7.12",
+    "react": "^16.11.0",
+    "react-twitter-embed": "^3.0.3",
+    "reactstrap": "^8.1.1"
 
 
 ## Built With
@@ -45,7 +51,7 @@ All dependencies can be installed via npm:
 
 * Express
 
-* SF Data API
+* DataSF API
 
 
 ## Authors
