@@ -1,4 +1,4 @@
-# lostintheworld#
+# Lost in the World #
 
 Lost in the World is an application that allows users to search and interact with publicly available art in San Francisco. 
 
@@ -20,6 +20,12 @@ Lost in the World is an application that allows users to search and interact wit
    Client: npm start
 
 4. Application will be available on localhost:3000.
+
+5. User will log in using either a Google account or a new email and password. 
+
+6. The landing page will input a zipcode and click submit. 
+
+7. A table will be populated with all results. Users will have the ability to save results. These results will be saved to the users's profile for later use. 
 
 ### Prerequisites
     All dependencies can be installed via npm:
