@@ -64,4 +64,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* The city of San Francisco 
+* I'm extremely grateful to my mentor, all Techtonica volunteers, and my wonderful home of BTB. 
