@@ -1,0 +1,25 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "canvas": "^2.6.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.5.2",
+    "jquery": "^3.4.1",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.4",
+    "pg": "^7.12.1",
+    "pug": "^2.0.4",
+    "squirrelly": "^7.7.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
