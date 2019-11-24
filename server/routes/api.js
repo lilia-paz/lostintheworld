@@ -1,5 +1,4 @@
 const express = require('express')
-var Sqrl = require('squirrelly')
 const path = require('path')
 var XmlHttpRequest = require('xmlhttprequest').XMLHttpRequest
 var xmlHttp = new XmlHttpRequest()
@@ -90,8 +89,6 @@ function calcDistanceBetween (lat1, lon1, lat2, lon2) {
 }
 
 function findArtwork (userInput, array) {
-  console.log("CHLOE, HOW LONG IS THE ARRAY BEFORE FILTERING?")
-  console.log(array.length)
   const resultArr = []
   const userCoordinates = findLoc(userInput)
   for (let i = 0; i < array.length; i++) {
@@ -100,8 +97,6 @@ function findArtwork (userInput, array) {
       resultArr.push(array[i])
     }
   }
-  console.log('THIS IS HOW LONG THE ARRAY IS')
-  console.log(resultArr.length)
   return resultArr
 }
 
@@ -125,13 +120,6 @@ router.get('/list', (req, res) => {
   xmlHttp.send(null)
   var Data = JSON.parse(xmlHttp.responseText)
   var filteredData = findArtwork(userInput, Data)
-
-  // here is where the method will be implemented. it will input Data and the query.name. Manipulate that information and return a filtered Data.
-
-  // var HTMLFile = Sqrl.renderFile('./lists.html', filteredData)
-  // res.write(HTMLFile)
-  console.log("CHLOE, SENDING FILTERED DATA DOWN")
-  console.log(filteredData.length)
   res.json({ filteredData })
 })
 
