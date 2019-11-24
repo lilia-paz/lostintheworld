@@ -30,8 +30,6 @@ const checkJwt = jwt({
   algorithms: ['RS256']
 });
 
-// database 
-
 // this is our MongoDB database
 const dbRoute ='mongodb+srv://liliapaz:y0ungthug@cluster0-3puql.mongodb.net/test?retryWrites=true&w=majority';
 
@@ -60,6 +58,3 @@ app.use('/', require('./routes/api'))
 
 // listening at port
 app.listen(app.get('port'), () => console.log(`My server is running ${app.get('port')}...`))
-
-// Start the app
-// app.listen(3001, () => console.log('API listening on 3001'));
